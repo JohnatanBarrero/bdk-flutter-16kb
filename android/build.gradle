@@ -1,0 +1,44 @@
+group 'io.bdk.f.bdk_flutter'
+version '0.31.3'
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.4.0'
+    }
+}
+
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    if (project.android.hasProperty("namespace")) {
+        namespace "io.bdk.f.bdk_flutter"
+    }
+    compileSdkVersion 33
+    ndkVersion android.ndkVersion
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        minSdkVersion 23
+    }
+}
+apply from: "../cargokit/gradle/plugin.gradle"
+
+cargokit {
+    manifestDir = "../rust"
+    libname = "bdk_flutter"
+}
