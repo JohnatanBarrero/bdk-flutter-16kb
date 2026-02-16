@@ -1,3 +1,6 @@
 cargo:
   release:
     toolchain: stable
+precompiled_binaries:
+  url_prefix: https://github.com/JohnatanBarrero/bdk-flutter-16kb/releases/download/precompiled_
+  public_key: 61e036563107d956e8e48be77cc1c0d8687da738da395f8d6f065e4c531336a3
